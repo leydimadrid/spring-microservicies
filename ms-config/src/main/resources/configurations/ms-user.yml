@@ -1,0 +1,19 @@
+server:
+  port: 8090
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://leydimadrid6:S270322@atlascluster.fcmud.mongodb.net/microservicies?retryWrites=true&w=majority
+  jpa:
+    hibernate:
+      ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

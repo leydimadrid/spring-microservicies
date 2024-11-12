@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: inventory
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/inventory/**
+        - id: products
+          uri: http://localhost:9091
+          predicates:
+            - Path=/api/v1/products/**
+        - id: user
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/v1/user/**
+
+eureka:
+  client:
+    register-with-eureka: false
